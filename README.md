@@ -53,6 +53,11 @@ Assume you have installed CUDA, check [this link](https://docs.nvidia.com/cuda/c
 
 For LibTorch, follow [libtorch installation](https://pytorch.org/get-started/locally/), here i choose to use [Stable-Linux-LibTorch-C++/Java-CUDA11.8](https://download.pytorch.org/libtorch/cu118/libtorch-cxx11-abi-shared-with-deps-2.7.1%2Bcu118.zip).
 
+For the question: 
+```
+BEV-LIO-LC/include/REM.hpp:122:107: error: no matching function for call to ‘torch::nn::functional::GridSampleFuncOptions::mode(const torch::enumtype::kBicubic&)’
+122 | auto options = torch::nn::functional::GridSampleFuncOptions().align_corners(true).mode(torch::kBicubic);
+```
 Change the code at Line 19 in libtorch/include/torch/csrc/api/include/torch/nn/options/vision.h
 
 ```c++
