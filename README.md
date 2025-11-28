@@ -132,12 +132,16 @@ roslaunch bev_lio_lc m2dgr.launch
 
 Please consider citing our work if you find our code or paper useful:
   ```bibtex
-@inproceedings{cai2025bev,
-  title={BEV-LIO(LC): BEV Image Assisted LiDAR-Inertial Odometry with Loop Closure},
-  author={Haoxin Cai and Shenghai Yuan and Xinyi Li and Junfeng Guo and Jianqi Liu},
-  booktitle={Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+@INPROCEEDINGS{11246238,
+  author={Cai, Haoxin and Yuan, Shenghai and Li, Xinyi and Guo, Junfeng and Liu, Jianqi},
+  booktitle={2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, 
+  title={BEV-LIO(LC): BEV Image Assisted LiDAR-Inertial Odometry with Loop Closure}, 
   year={2025},
-  address={Hangzhou, China}
+  volume={},
+  number={},
+  pages={1290-1297},
+  keywords={Location awareness;Point cloud compression;Laser radar;Accuracy;Databases;Image matching;Transforms;Feature extraction;Odometry;Convolutional neural networks},
+  doi={10.1109/IROS60139.2025.11246238}}
 }
   ```
 
