@@ -66,7 +66,7 @@ image:
     match_mode: "ransac"
     ransac_threshold: 5
 # change to your path
-model_path: '/home/chx/bev-lio-lc/src/BEV_LIO/models/gpu.pt'
+model_path: '/home/chx/BEV-LIO-LC-git/src/BEV-LIO-LC/models/gpu.pt'
 
 filter:
     bev_scale: 0.00001
@@ -94,7 +94,7 @@ loop:
         match_mode: "ransac"
         ransac_threshold: 5
     # change to your path
-    model_path: '/home/chx/bev-lio-lc/src/BEV_LIO/models/gpu.pt'
+    model_path: '/home/chx/BEV-LIO-LC-git/src/BEV-LIO-LC/models/gpu.pt'
 
 loop_with_ORB_: 1 # if use orb at backend to match frames.(REIN performs bad at backend matching)
 loopClosureEnableFlag: true

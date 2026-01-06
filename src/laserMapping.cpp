@@ -2474,6 +2474,7 @@ int main(int argc, char** argv)
             }
             else{
                 last_frame = current_frame.clone(); 
+                current_frame = BEVFrame();
                 current_frame.points = feats_undistort;
                 current_frame.T_current_last = T_current_last;
                 current_frame.header = header;

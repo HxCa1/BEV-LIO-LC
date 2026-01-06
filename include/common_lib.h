@@ -170,7 +170,7 @@ struct BEVFrame {
     cv::Mat img_with_keypoints;
     cv::Mat img_dense;
     M4D T_current_last;
-    PointCloudXYZI::Ptr points;
+    PointCloudXYZI::Ptr points{new PointCloudXYZI()}; 
 
     // std::vector<std::vector<std::vector<float>>> local_feats; // 128
     // std::vector<float> global_desc; // 8192
@@ -180,20 +180,25 @@ struct BEVFrame {
     cv::Mat query_descriptors;
 
     BEVFrame clone() const {
-    BEVFrame f;
-    f.header               = header;
-    f.img_photo_u8         = img_photo_u8.clone();
-    f.img_matches          = img_matches.clone();
-    f.img_with_keypoints   = img_with_keypoints.clone();
-    f.img_dense            = img_dense.clone();
-    f.T_current_last       = T_current_last;
-    f.points               = boost::make_shared<PointCloudXYZI>(*points); 
-    f.local_feats          = local_feats.clone();
-    f.global_desc          = global_desc;
-    f.keypoints            = keypoints;
-    f.query_descriptors    = query_descriptors.clone();
-    return f;
-}
+        BEVFrame f;
+        f.header               = header;
+        f.img_photo_u8         = img_photo_u8.clone();
+        f.img_matches          = img_matches.clone();
+        f.img_with_keypoints   = img_with_keypoints.clone();
+        f.img_dense            = img_dense.clone();
+        f.T_current_last       = T_current_last;
+        if (points) {
+            f.points = boost::make_shared<PointCloudXYZI>(*points); 
+        } else {
+            // if empty, create a new point cloud
+            f.points = boost::make_shared<PointCloudXYZI>(); 
+        }
+        f.local_feats          = local_feats.clone();
+        f.global_desc          = global_desc;
+        f.keypoints            = keypoints;
+        f.query_descriptors    = query_descriptors.clone();
+        return f;
+    }
 };
 
 inline std::string string_from_double(double d, int precision = 3) {

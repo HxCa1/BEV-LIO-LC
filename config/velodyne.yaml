@@ -63,7 +63,7 @@ image:
     match_mode: "ransac"
     ransac_threshold: 5
 runtime_pos_log_enable: 1
-model_path: '/home/chx/bevlio/src/BEV_LIO/models/gpu.pt'
+model_path: '/home/chx/BEV-LIO-LC-git/src/BEV-LIO-LC/models/gpu.pt'
 
 filter:
     bev_scale: 0.001

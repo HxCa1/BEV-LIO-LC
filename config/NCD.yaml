@@ -67,7 +67,7 @@ image:
     ransac_threshold: 5
 runtime_pos_log_enable: false
 # model_path: '/home/chx/BEVPlace/runs/Aug08_10-17-29/model_best.pt'
-model_path: '/home/chx/bevlio/src/BEV_LIO/models/gpu.pt'
+model_path: '/home/chx/BEV-LIO-LC-git/src/BEV-LIO-LC/models/gpu.pt'
 
 filter:
     bev_scale: 0.001
