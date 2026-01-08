@@ -31,6 +31,10 @@ void BEVProjector::loadParameters(ros::NodeHandle nh) {
 }
 
 void BEVProjector::voxelDownSample(BEVFrame& frame) {
+    if (!frame.points || frame.points->empty()) {
+        std::cout << "Point cloud is empty, skipping voxel downsampling." << std::endl;
+        return;
+    }
     pcl::VoxelGrid<PointType> sor;
     sor.setInputCloud(frame.points);
     sor.setLeafSize(voxel_size_, voxel_size_, voxel_size_);
@@ -50,6 +54,11 @@ void BEVProjector::getBEV(BEVFrame& frame) {
 
     cv::Mat mat_global_image = cv::Mat::zeros(y_num_, x_num_, CV_8UC1);
     frame.img_dense = cv::Mat::zeros(y_num_, x_num_, CV_32FC1);
+
+    if (!frame.points) {
+        std::cout << "Point cloud is empty, skipping BEV projection." << std::endl;
+        return;   
+    }
 
     for (size_t i = 0; i < frame.points->points.size(); ++i) {
         const auto& point = frame.points->points[i];
