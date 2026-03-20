@@ -6,14 +6,6 @@
     
     <rosparam command="load" file="$(find bev_lio_lc)/config/mcd_o.yaml" />
 
-    <!-- Run the livox to ouster converter -->
-    <!-- <node pkg="slict" type="slict_livox_to_ouster" name="slict_livox_to_ouster" respawn="false" output="log" required="true"></node>   -->
-    
-    <!-- Create the merge pointcloud -->
-    <!-- <node pkg="slict" type="slict_merge_lidar" name="slict_merge_lidar" respawn="true" output="screen" required="false">
-        <rosparam file="$(find slict)/config/$(arg config_file).yaml" command="load"/>
-    </node> -->
-
     <param name="feature_extract_enable"  type="bool"   value="0"/>
     <param name="point_filter_num"        type="int"    value="1"/>
     <param name="max_iteration"           type="int"    value="5" />
@@ -22,7 +14,12 @@
     <param name="cube_side_length"        type="double" value="1000" />
     <param name="runtime_pos_log_enable"  type="bool"   value="0" />
     <param name="exp_log_dir"             type="string" value="$(arg exp_log_dir)"/>
-    <node pkg="bev_lio_lc" type="bevlio_mapping" name="laserMapping" output="screen"/>
+    <!-- model path -->
+    <arg name="pkg_path" default="$(find bev_lio_lc)"/>
+    <param name="model_path" value="$(arg pkg_path)/models/gpu.pt" />
+    <param name="loop/model_path" value="$(arg pkg_path)/models/gpu.pt" />
+
+    <node pkg="bev_lio_lc" type="bevlio_mapping" name="laserMapping" output="screen" /> 
 
     <!-- <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find bev_lio_lc)/rviz_cfg/atv.rviz" /> -->
     <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find bev_lio_lc)/rviz_cfg/loam_livox.rviz" />

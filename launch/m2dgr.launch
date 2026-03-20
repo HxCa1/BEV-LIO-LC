@@ -12,6 +12,11 @@
     <param name="filter_size_map" type="double" value="0.5" />
     <param name="cube_side_length" type="double" value="1000" />
     <param name="runtime_pos_log_enable" type="bool" value="0" />
+    <!-- model path -->
+    <arg name="pkg_path" default="$(find bev_lio_lc)"/>
+    <param name="model_path" value="$(arg pkg_path)/models/gpu.pt" />
+    <param name="loop/model_path" value="$(arg pkg_path)/models/gpu.pt" />
+
     <node pkg="bev_lio_lc" type="bevlio_mapping" name="laserMapping" output="screen" /> 
 
     <group if="$(arg rviz)">

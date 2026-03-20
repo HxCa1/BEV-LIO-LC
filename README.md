@@ -145,7 +145,13 @@ Please consider citing our work if you find our code or paper useful:
 }
   ```
 
-## 5.Acknowledgments
+## 5. Contributing / Help Needed
+
+For the bugs, we welcome community contributions, please check out issues labeled **[help wanted](https://github.com/HxCa1/BEV-LIO-LC/labels/help%20wanted)** – these issues specifically need extra attention and assistance. 
+
+If you find a new bug or have suggestions for improvements, feel free to open an issue or submit a pull request. Thank you!
+
+## 6.Acknowledgments
 
 Thank the authors of [BEVPlace++](https://github.com/zjuluolun/BEVPlace2), [FAST-LIO2](https://github.com/hku-mars/BEV_LIO), [COIN-LIO](https://github.com/ethz-asl/COIN-LIO), [MapClosures](https://github.com/PRBonn/MapClosures) and [FAST-LIO-SAM](https://github.com/kahowang/FAST_LIO_SAM) for open-sourcing their outstanding works.
 
